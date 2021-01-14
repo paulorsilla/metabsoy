@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="MetabSoy\Repository\Colaborador")
  * @ORM\Table(name="sigrh.colaborador")
  */
-class Colaborador extends AbstractEntity {
+class Resultado extends AbstractEntity {
 
     /**
      * @ORM\Id
