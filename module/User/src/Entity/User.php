@@ -51,23 +51,18 @@ class User {
         return $this->login;
     }
 
-    function getNome() {
+    public function getNome() {
         return $this->nome;
     }
     
-    function getEmail() {
+    public function getEmail() {
         return $this->email;
     }
 
-    function setEmail($email) {
+    public function setEmail($email) {
         $this->email = $email;
     }
-
-    function getPapel() {
-        return $this->papel;
-    }
-    
-    
+        
     /**
      * Sets user ID.
      * 
@@ -82,12 +77,16 @@ class User {
         $this->login = $login;
     }
 
-    function setNome($nome) {
+    public function setNome($nome) {
         $this->nome = $nome;
     }
 
-    function setPapel($papel) {
+    public function setPapel($papel) {
         $this->papel = $papel;
+    }
+    
+    public function getPapel() {
+        return $this->papel;
     }
 
 

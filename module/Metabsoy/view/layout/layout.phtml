@@ -62,7 +62,7 @@ $(document).ready(function(){
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="<?php echo $this->url('home') ?>">
-                        <img src="<?php echo $this->basePath('img/embrapa.png') ?>" height="28" alt="Eleicao"/>
+                        <img src="<?php echo $this->basePath('img/embrapa.png') ?>" height="28" alt="MetabSoy"/>
                  </a>
                 </div>
                 <?php if (($papel == 0) && ($this->identity() != null)):?>
@@ -70,9 +70,9 @@ $(document).ready(function(){
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="<?php echo $this->url('home') ?>">Início</a></li>
 
-                                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="true">Evento<span class="caret"></span></a>
+                                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="true">Cadastros<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/eleicao/evento">Cadastrar Evento</a></li>
+                                            <li><a href="/metabsoy/material">Cadastrar Materiais</a></li>
                                         </ul>
                                 </li>
                                

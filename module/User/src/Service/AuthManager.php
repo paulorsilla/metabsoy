@@ -69,8 +69,8 @@ class AuthManager {
             $papel = $user->getPapel();
             $nome = $user->getNome();
         } else {
-            $papel = 1;
-            $nome = "Eleitor";
+            $papel = 2;
+            $nome = "Comum";
         }
 
         // Authenticate with login/password.

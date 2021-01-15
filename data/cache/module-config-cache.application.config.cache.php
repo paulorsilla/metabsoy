@@ -503,6 +503,24 @@ return array (
         'may_terminate' => true,
         'child_routes' => 
         array (
+          'material' => 
+          array (
+            'type' => 'Zend\\Router\\Http\\Segment',
+            'options' => 
+            array (
+              'route' => '/material[/:action[/:id]]',
+              'constraints' => 
+              array (
+                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                'id' => '[0-9]+',
+              ),
+              'defaults' => 
+              array (
+                'controller' => 'Metabsoy\\Controller\\MaterialController',
+                'action' => 'index',
+              ),
+            ),
+          ),
         ),
       ),
       'login' => 
@@ -666,7 +684,7 @@ return array (
           'port' => '3306',
           'user' => 'root',
           'password' => 'temp10',
-          'dbname' => 'EQ-BD',
+          'dbname' => 'metabsoy',
           'charset' => 'utf8',
         ),
         'driverClass' => 'Doctrine\\DBAL\\Driver\\PDOMySql\\Driver',
@@ -830,6 +848,7 @@ return array (
     array (
       'DoctrineModule\\Controller\\Cli' => 'DoctrineModule\\Service\\CliControllerFactory',
       'Metabsoy\\Controller\\IndexController' => 'Metabsoy\\Service\\Factory\\PadraoControllerFactory',
+      'Metabsoy\\Controller\\MaterialController' => 'Metabsoy\\Service\\Factory\\PadraoControllerFactory',
       'User\\Controller\\AuthController' => 'User\\Controller\\Factory\\AuthControllerFactory',
       'User\\Controller\\UserController' => 'User\\Controller\\Factory\\UserControllerFactory',
     ),

@@ -36,34 +36,32 @@ return [
                 ],
                 'may_terminate' => true,
                 'child_routes' => [
-//                    'evento' => [
-//                        'type' => Segment::class,
-//                        'options' => [
-//                            'route' => '/evento[/:action[/:id]]',
-//                            'constraints' => [
-//                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-//                                'id' => '[0-9]+'
-//                            ],
-//                            'defaults' => [
-//                                'controller' => Controller\EventoController::class,
-//                                'action' => 'index'
-//                            ]
-//                        ]
-//                    ],
+                    'material' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/material[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\MaterialController::class,
+                                'action' => 'index'
+                            ]
+                        ]
+                    ],
                 ],
             ],
         ],
     ],
-    
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => Service\Factory\PadraoControllerFactory::class,
-//            Controller\CedulaController::class => Service\Factory\PadraoControllerFactory::class,
+            Controller\MaterialController::class => Service\Factory\PadraoControllerFactory::class,
 //            Controller\EventoController::class => Service\Factory\PadraoControllerFactory::class,
-    //        Controller\VotoController::class => Service\Factory\PadraoControllerFactory::class,
+        //        Controller\VotoController::class => Service\Factory\PadraoControllerFactory::class,
         ],
     ],
-    
     'doctrine' => [
         'driver' => [
             __NAMESPACE__ . '_driver' => [
@@ -80,13 +78,11 @@ return [
             ]
         ]
     ],
-    
 //    'service_manager' => [
 //        'factories' => [
 //            Service\FileUpload::class => Service\Factory\FileUploadFactory::class
 //        ]
 //    ],
-    
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions' => true,
@@ -99,11 +95,9 @@ return [
             'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
         ],
-        
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
-
         'strategies' => [
             'ViewJsonStrategy',
         ],

@@ -14,7 +14,7 @@ use Zend\Paginator\Paginator;
 
 class AbstractRepository extends EntityRepository {
 
-    public function getQuery($search = array()) {
+    public function getQuery($search = []) {
         return null;
     }
 
