@@ -3,11 +3,11 @@
 namespace Metabsoy\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Metabsoy\Form\MaterialForm;
+use Metabsoy\Form\MetabolitoForm;
 use Zend\View\Model\ViewModel;
-use Metabsoy\Entity\Material;
+use Metabsoy\Entity\Metabolito;
 
-class MaterialController extends AbstractActionController
+class MetabolitoController extends AbstractActionController
 {
 	/**
 	 * Entity Manager
@@ -25,13 +25,13 @@ class MaterialController extends AbstractActionController
 	
 	public function indexAction()
 	{
-            $repo = $this->entityManager->getRepository(Material::class);
+            $repo = $this->entityManager->getRepository(Metabolito::class);
             $page = $this->params()->fromQuery('page', 1);
             $search = $this->params()->fromPost();
             $paginator = $repo->getPaginator($page, $search);
 
             return new ViewModel([
-                'materiais' => $paginator,
+                'metabolitos' => $paginator,
             ]);	
 	}
 	
@@ -42,7 +42,7 @@ class MaterialController extends AbstractActionController
 	{
             $id = $this->params()->fromRoute('id', null);
             //Cria o formulário
-            $form = new MaterialForm();
+            $form = new MetabolitoForm();
 
             //Verifica se a requisição utiliza o método POST
             if ($this->getRequest()->isPost()) {
@@ -54,13 +54,13 @@ class MaterialController extends AbstractActionController
                 $form->setData($data);
                 if ($form->isValid()) {
                     $data = $form->getData();
-                    $repo = $this->entityManager->getRepository(Material::class);
+                    $repo = $this->entityManager->getRepository(Metabolito::class);
                     $repo->incluir_ou_editar($data, $id);
-                    return $this->redirect()->toRoute('metabsoy/material', ['action' => 'save']);
+                    return $this->redirect()->toRoute('metabsoy/metabolito', ['action' => 'save']);
                 }
             } else {
                 if ( !empty($id)){
-                    $repo = $this->entityManager->getRepository(Material::class);
+                    $repo = $this->entityManager->getRepository(Metabolito::class);
                     $row = $repo->find($id);
                     if ( !empty($row)){
                         $form->setData($row->toArray());
@@ -76,10 +76,10 @@ class MaterialController extends AbstractActionController
 	{
             $id = (int) $this->params()->fromRoute('id', 0);
             if (!$id) {
-                return $this->redirect()->toRoute('metabsoy/material');
+                return $this->redirect()->toRoute('metabsoy/metabolito');
             }
             $request = $this->getRequest();
-            $repo = $this->entityManager->getRepository(Material::class);
+            $repo = $this->entityManager->getRepository(Metabolito::class);
 
             if ($request->isPost()) {
                 $del = $request->getPost('del', 'Não');
@@ -88,12 +88,12 @@ class MaterialController extends AbstractActionController
                     $repo->delete($id);
                 }
                 // Redireciona para a lista de registros cadastrados
-                return $this->redirect()->toRoute('metabsoy/material');
+                return $this->redirect()->toRoute('metabsoy/metabolito');
             }
-            $material = $repo->find($id);
+            $metabolito = $repo->find($id);
 
             return new ViewModel([
-                'material' => $material,
+                'metabolito' => $metabolito,
             ]);
 	}
 }

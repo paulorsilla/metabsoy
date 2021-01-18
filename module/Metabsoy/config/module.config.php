@@ -36,6 +36,48 @@ return [
                 ],
                 'may_terminate' => true,
                 'child_routes' => [
+                    'ambiente' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/ambiente[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\AmbienteController::class,
+                                'action' => 'index'
+                            ]
+                        ]
+                    ],
+                    'classe' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/classe[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ClasseController::class,
+                                'action' => 'index'
+                            ]
+                        ]
+                    ],
+                    'indutor' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/indutor[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\IndutorController::class,
+                                'action' => 'index'
+                            ]
+                        ]
+                    ],
                     'material' => [
                         'type' => Segment::class,
                         'options' => [
@@ -50,14 +92,32 @@ return [
                             ]
                         ]
                     ],
+                    'metabolito' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/metabolito[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\MetabolitoController::class,
+                                'action' => 'index'
+                            ]
+                        ]
+                    ],
                 ],
             ],
         ],
     ],
     'controllers' => [
         'factories' => [
+            Controller\AmbienteController::class => Service\Factory\PadraoControllerFactory::class,
+            Controller\ClasseController::class => Service\Factory\PadraoControllerFactory::class,
             Controller\IndexController::class => Service\Factory\PadraoControllerFactory::class,
+            Controller\IndutorController::class => Service\Factory\PadraoControllerFactory::class,
             Controller\MaterialController::class => Service\Factory\PadraoControllerFactory::class,
+            Controller\MetabolitoController::class => Service\Factory\PadraoControllerFactory::class,
 //            Controller\EventoController::class => Service\Factory\PadraoControllerFactory::class,
         //        Controller\VotoController::class => Service\Factory\PadraoControllerFactory::class,
         ],

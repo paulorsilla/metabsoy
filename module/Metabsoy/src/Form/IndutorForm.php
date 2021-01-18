@@ -6,16 +6,16 @@ use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
 /**
- * Formulário utilizado para o cadastro de Material
+ * Formulário utilizado para o cadastro de Indutor
  */
-class MaterialForm extends Form {
+class IndutorForm extends Form {
 
     /**
      * Construtor
      */
     public function __construct() {
         //Determina o nome do formulário
-        parent::__construct('material-form');
+        parent::__construct('indutor-form');
 
         //Define o método POST para envio do formulário
         $this->setAttribute('method', 'post');
@@ -64,7 +64,7 @@ class MaterialForm extends Form {
                     'name' => 'StringLength',
                     'options' => [
                         'min' => 2,
-                        'max' => 255
+                        'max' => 256
                     ],
                 ],
             ],

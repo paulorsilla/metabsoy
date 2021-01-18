@@ -503,6 +503,24 @@ return array (
         'may_terminate' => true,
         'child_routes' => 
         array (
+          'ambiente' => 
+          array (
+            'type' => 'Zend\\Router\\Http\\Segment',
+            'options' => 
+            array (
+              'route' => '/ambiente[/:action[/:id]]',
+              'constraints' => 
+              array (
+                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                'id' => '[0-9]+',
+              ),
+              'defaults' => 
+              array (
+                'controller' => 'Metabsoy\\Controller\\AmbienteController',
+                'action' => 'index',
+              ),
+            ),
+          ),
           'material' => 
           array (
             'type' => 'Zend\\Router\\Http\\Segment',
@@ -847,6 +865,7 @@ return array (
     'factories' => 
     array (
       'DoctrineModule\\Controller\\Cli' => 'DoctrineModule\\Service\\CliControllerFactory',
+      'Metabsoy\\Controller\\AmbienteController' => 'Metabsoy\\Service\\Factory\\PadraoControllerFactory',
       'Metabsoy\\Controller\\IndexController' => 'Metabsoy\\Service\\Factory\\PadraoControllerFactory',
       'Metabsoy\\Controller\\MaterialController' => 'Metabsoy\\Service\\Factory\\PadraoControllerFactory',
       'User\\Controller\\AuthController' => 'User\\Controller\\Factory\\AuthControllerFactory',

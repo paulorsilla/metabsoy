@@ -5,11 +5,11 @@ namespace Metabsoy\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Classe Material.
- * @ORM\Entity(repositoryClass="Metabsoy\Repository\Material")
- * @ORM\Table(name="materiais")
+ * Classe Classe.
+ * @ORM\Entity(repositoryClass="Metabsoy\Repository\Classe")
+ * @ORM\Table(name="classes")
  */
-class Material extends AbstractEntity {
+class Classe extends AbstractEntity {
 
     /**
      * @ORM\Id

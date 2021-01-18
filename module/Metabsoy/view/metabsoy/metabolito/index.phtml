@@ -1,21 +1,21 @@
-<h1>Materiais cadastrados</h1>
+<h1>Metabólitos cadastrados</h1>
 <div class="row">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Material</th>
+                <th>Metabólito</th>
                 <th>Opções</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($this->materiais as $material): ?>
+            <?php foreach ($this->metabolitos as $metabolito): ?>
                 <tr>
-                    <td><?php echo $this->escapeHtml($material->getDescricao()); ?></td>
+                    <td><?php echo $this->escapeHtml($metabolito->getDescricao()); ?></td>
                     <td><a class="btn btn-primary btn-sm pull-center"
-                           href="<?php echo $this->url('metabsoy/material', ['action' => 'save', 'id' => $material->getId()]) ?>"
+                           href="<?php echo $this->url('metabsoy/metabolito', ['action' => 'save', 'id' => $metabolito->getId()]) ?>"
                            title="Editar registro."><span class="glyphicon glyphicon-pencil"></span></a>
                         <a class="btn btn-primary btn-sm pull-center"
-                           href="<?php echo $this->url('metabsoy/material', ['action' => 'delete', 'id' => $material->getId()]) ?>"
+                           href="<?php echo $this->url('metabsoy/metabolito', ['action' => 'delete', 'id' => $metabolito->getId()]) ?>"
                            title="Excluir registro."><span class="glyphicon glyphicon-remove"></span></a>
                     </td>
                 </tr>
@@ -23,10 +23,10 @@
         </tbody>
     </table>
     <span class="pull-right">
-        <?php echo $this->paginationControl($this->materiais, 'Elastic', 'metabsoy/partial/paginator', ['route' => 'metabsoy/material']); ?>
+        <?php echo $this->paginationControl($this->metabolitos, 'Elastic', 'metabsoy/partial/paginator', ['route' => 'metabsoy/metabolito']); ?>
     </span>
 </div>
 
 <div class="row">
-    <a class="btn btn-primary pull-left" href="/metabsoy/material/save">Novo registro</a>
+    <a class="btn btn-primary pull-left" href="/metabsoy/metabolito/save">Novo registro</a>
 </div>

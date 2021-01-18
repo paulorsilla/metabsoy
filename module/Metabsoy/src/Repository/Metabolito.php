@@ -2,18 +2,18 @@
 
 namespace Metabsoy\Repository;
 
-use Metabsoy\Entity\Material as MaterialEntity;
+use Metabsoy\Entity\Ambiente as AmbienteEntity;
 
-class Material extends AbstractRepository {
+class Ambiente extends AbstractRepository {
 
     public function getQuery($search = []) {
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->select('m')
-                ->from(MaterialEntity::class, 'm')
-                ->orderby('m.descricao','ASC');
+        $qb->select('a')
+                ->from(AmbienteEntity::class, 'a')
+                ->orderby('a.descricao','ASC');
         
         if ( !empty($search['search'])){
-            $qb->where('m.descricao like :busca');
+            $qb->where('a.descricao like :busca');
             $qb->setParameter("busca",'%'.$search['search'].'%');
         }
        return $qb;
@@ -35,7 +35,7 @@ class Material extends AbstractRepository {
             $row = $this->find($id); // busca o registro para poder alterar
         }    
         if ( empty($row)) {
-            $row = new MaterialEntity();
+            $row = new AmbienteEntity();
         }
         
         $row->setData($dados); // setar os dados da model a partir dos dados capturados do formulario
